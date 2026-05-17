@@ -10,7 +10,8 @@ requires-python = "3.12.10"
 dependencies = [
     "dbt-core (>=1.11.10,<2.0.0)",
     "dbt-snowflake (>=1.11.5,<2.0.0)",
-    "requests (>=2.34.2,<3.0.0)"
+    "requests (>=2.34.2,<3.0.0)",
+    "pandas (>=3.0.3,<4.0.0)"
 ]
 
 
