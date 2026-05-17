@@ -2110,6 +2110,26 @@ pandas = ["pandas (>=1.0.0,<3.0.0) ; python_version < \"3.13\"", "pandas (>=2.1.
 secure-local-storage = ["keyring (>=23.1.0,<26.0.0)"]
 
 [[package]]
+name = "snowflake-sqlalchemy"
+version = "1.9.0"
+description = "Snowflake SQLAlchemy Dialect"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "snowflake_sqlalchemy-1.9.0-py3-none-any.whl", hash = "sha256:f0b1528173e93c8c80bd9ca510985054667e0e514dd90b890271ac1cfae261c1"},
+    {file = "snowflake_sqlalchemy-1.9.0.tar.gz", hash = "sha256:fb32baf559f7f933ae8fde2ec535bcea5381bb15188777cd8c006b3226efa3b1"},
+]
+
+[package.dependencies]
+snowflake-connector-python = "<5.0.0"
+sqlalchemy = ">=1.4.19"
+
+[package.extras]
+development = ["numpy", "pre-commit", "pytest", "pytest-cov", "pytest-rerunfailures", "pytest-timeout", "pytest-xdist", "pytz", "setuptools", "syrupy"]
+pandas = ["snowflake-connector-python[pandas]"]
+
+[[package]]
 name = "snowplow-tracker"
 version = "1.1.0"
 description = "Snowplow event tracker for Python. Add analytics to your Python and Django apps, webapps and games"
@@ -2363,4 +2383,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "3.12.10"
-content-hash = "ddd52881c977fd6c705817751fbd3fbf095b5b4516d3df7c602a8b13b6095d98"
+content-hash = "abcd487e98bf6aed831d8537f09910c2105f9748451dad3c4966e0c8a93f9e8b"
