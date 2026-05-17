@@ -1,0 +1,18 @@
+[project]
+name = "elt-jobicy-api"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "joaohsilva",email = "joaohasilva416@gmail.com"}
+]
+readme = "README.md"
+requires-python = "3.12.10"
+dependencies = [
+    "dbt-core (>=1.11.10,<2.0.0)",
+    "dbt-snowflake (>=1.11.5,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
