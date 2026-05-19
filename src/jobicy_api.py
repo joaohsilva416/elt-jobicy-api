@@ -23,3 +23,11 @@ class JobicyAPI:
         
         else:
             response.raise_for_status()
+    
+
+    def get_jobs_data(self) -> pd.DataFrame:
+        if self.data and 'jobs' in self.data:
+            return pd.DataFrame(self.data['jobs'])
+        
+        else:
+            return pd.DataFrame()
