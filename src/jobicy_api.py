@@ -12,3 +12,14 @@ class JobicyAPI:
         self.industry = industry
         self.count = count
         self.data = None
+
+
+    def fetch_data(self) -> None:
+        url = f"{self.base_url}?count={self.count}&{self.industry}"
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            self.data = response.json()
+        
+        else:
+            response.raise_for_status()
