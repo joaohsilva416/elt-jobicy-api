@@ -6,7 +6,7 @@ authors = [
     {name = "joaohsilva",email = "joaohasilva416@gmail.com"}
 ]
 readme = "README.md"
-requires-python = "3.12.10"
+requires-python = ">=3.12"
 dependencies = [
     "dbt-core (>=1.11.10,<2.0.0)",
     "dbt-snowflake (>=1.11.5,<2.0.0)",
