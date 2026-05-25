@@ -62,7 +62,7 @@ class Snowflake:
 def main() -> None:
     api = JobicyAPI(
         base_url="https://jobicy.com/api/v2/remote-jobs",
-        industry="data-science",
+        industry="dev",
         count=10
     )
 
@@ -76,20 +76,20 @@ def main() -> None:
         jobs_df.columns = [
             'ID',
             'URL',
-            'companyLogo',
-            'companyName',
-            'jobDescription',
-            'jobExcerpt',
-            'jobGeo',
-            'jobIndustry',
-            'jobLevel',
             'jobSlug',
             'jobTitle',
+            'companyName',
+            'companyLogo',
+            'jobIndustry',
             'jobType',
+            'jobGeo',
+            'jobLevel',
+            'jobExcerpt',
+            'jobDescription',
             'pubDate',
+            'salaryMin',
+            'salaryMax',
             'salaryCurrency',
-            'annualSalaryMin',
-            'annualSalaryMax',
             'salaryPeriod'
         ]
 
@@ -98,20 +98,20 @@ def main() -> None:
         # Cast all columns to string to ensure Snowflake compatibility
         string_columns = [
             'URL',
-            'companyLogo',
-            'companyName',
-            'jobDescription',
-            'jobExcerpt',
-            'jobGeo',
-            'jobIndustry',
-            'jobLevel',
             'jobSlug',
             'jobTitle',
+            'companyName',
+            'companyLogo',
+            'jobIndustry',
             'jobType',
+            'jobGeo',
+            'jobLevel',
+            'jobExcerpt',
+            'jobDescription',
             'pubDate',
+            'salaryMin',
+            'salaryMax',
             'salaryCurrency',
-            'annualSalaryMin',
-            'annualSalaryMax',
             'salaryPeriod'
             ]
         

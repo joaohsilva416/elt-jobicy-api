@@ -6,10 +6,10 @@ with sources as (
         "jobType",
         "jobGeo",
         "jobLevel",
-        "annualSalaryMin",
-        "annualSalaryMax",
+        "salaryMin",
+        "salaryMax",
         "salaryCurrency",
-    from {{ source('ELT_JOBICY', 'remote_works') }}
+    from {{ source("ELT_JOBICY", "remote_works") }}
 ),
 
 -- Renamed: insert all transforms
@@ -20,8 +20,8 @@ renamed as (
         "jobType" as job_type,
         "jobGeo" as work_location,
         "jobLevel" as seniority,
-        cast("annualSalaryMin" as float) as annual_salary_min,
-        cast("annualSalaryMax" as float) as annual_salary_max,
+        try_cast(nullif("salaryMin", 'NaN') as float) as annual_salary_min,
+        try_cast(nullif("salaryMax", 'NaN') as float) as annual_salary_max,
         "salaryCurrency" as currency,
     from sources
 ),
@@ -34,12 +34,14 @@ final as (
         job_type,
         work_location,
         seniority,
-        (annual_salary_min/12) as monthly_salary_min,
+        round(annual_salary_min/12, 2) as monthly_salary_min,
         annual_salary_min,
-        (annual_salary_max/12) as monthly_salary_max,
+        round(annual_salary_max/12, 2) as monthly_salary_max,
         annual_salary_max,
         currency
     from renamed
+    where annual_salary_min is not null
+    or annual_salary_max is not null
 )
 
 select * from final
